@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expenditure: one
+  date_made: 2017-08-28 02:14:58
+  payer: one
+  amount: 1
+
+two:
+  expenditure: two
+  date_made: 2017-08-28 02:14:58
+  payer: two
+  amount: 1

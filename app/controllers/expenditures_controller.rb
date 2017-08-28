@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class ExpendituresController < ApplicationController
   def index
   end
 
@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def create
+    render plain: params[:expenditure].inspect
   end
 
   def edit

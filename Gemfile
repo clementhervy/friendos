@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Fix for font-awesome-sprockets not found
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
+# Use Clearance for authentication
+gem 'clearance', '~> 1.11'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

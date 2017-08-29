@@ -283,6 +283,7 @@
   
   
   
+  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -303,16 +304,22 @@
       <pre class="lines">
 
 
+10
+11
 12
 13
 14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+  <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_flash'>flash</span><span class='period'>.</span><span class='id identifier rubyid_alert'>alert</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Un compte avec cet email existe d\xC3\xA9j\xC3\xA0 :/</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='rparen'>)</span>
   <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
   <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@user</span>
@@ -337,14 +344,12 @@
       <pre class="lines">
 
 
-24
-25</pre>
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -365,14 +370,12 @@
       <pre class="lines">
 
 
-18
 19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -393,14 +396,12 @@
       <pre class="lines">
 
 
-2
-3</pre>
+2</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 2</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -421,14 +422,12 @@
       <pre class="lines">
 
 
-9
-10</pre>
+8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 8</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -449,12 +448,12 @@
       <pre class="lines">
 
 
+4
 5
-6
-7</pre>
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -479,14 +478,12 @@
       <pre class="lines">
 
 
-21
-22</pre>
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 21</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -497,7 +494,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 29 13:18:43 2017 by
+  Generated on Tue Aug 29 17:54:04 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

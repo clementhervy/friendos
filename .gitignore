@@ -22,4 +22,5 @@
 
 .byebug_history
 .dropbox
-/doc
+/doc/*
+/.yardoc/*

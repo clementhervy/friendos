@@ -1,0 +1,37 @@
+<section class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="content-header">Mes dépenses</h1>
+        <% if @expenditures_created.empty? do %>
+          <h2>Vous n'avez pas créé de dépenses !</h2>
+          <%= link_to "Ajouter une dépense", new_expenditure_path, class: 'btn btn-lg btn-primary btn-block' %>
+        <% else %>
+        <table class="table table-inverse">
+          <thead>
+            <tr>
+              <th>Motif</th>
+              <th>Date</th>
+              <th>Groupe</th>
+              <th>Montant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @expenditures_created.each do |e| %>
+              <tr>
+                <th scope="row"><%= e.object %></th>
+                <td><%= e.date_made %></td>
+                <td title=<%= e.beneficiaries %>><%= e.group %></td>
+                <td><%= e.amount %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+      <div class="col-12 text-center">
+        <h1 class="content-header">Les dépenses de mes amis</h1>
+      </div>
+    </div>
+  </div>
+</section>

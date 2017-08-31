@@ -1,0 +1,22 @@
+<section class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="content-header">Nouveau groupe</h1>
+        <%= form_for :group, url: groups_path do |form| %>
+          <%= form.text_field :name, class: 'form-control', placeholder: 'Nom', required: true, input_html: { autofocus: true }, title: "Le nom de mon groupe." %>
+          <%= form.select :users, User.all.select {|u| u.id != current_user.id}.map {|u| [u.name, u.id]}, {}, {multiple: true, class: 'form-control'} %>
+          <%= form.submit 'Créer le groupe !', class: 'form-control btn btn-lg btn-primary btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+* Group             -> OK
+    * name
+    * creator       -> User bt OK
+    * users         -> ** hmabt OK
+    * expenditures  -> * hm OK
+-->

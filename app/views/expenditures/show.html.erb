@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Détail de la dépense</h1>
+      <p>
+        <strong>Motif :</strong>
+        <%= @expenditure.object %>
+      </p>
+      <p>
+        <strong>Date :</strong>
+        <%= @expenditure.date_made %>
+      </p>
+      <p>
+        <strong>Payeur :</strong>
+        <%= @expenditure.payer.name %>
+      </p>
+      <p>
+        <strong>Groupe :</strong>
+        <%= @expenditure.group.name %>
+      </p>
+      <p>
+        <strong>(Yves) Montant :</strong>
+        <%= @expenditure.amount %>
+      </p>
+      <p>
+        <strong>(Yves) Montant :</strong>
+        <%= @expenditure.amount_per_user %>
+      </p>
+      <%= if (@expenditure.total_payed != @expenditure.amount) %>
+        <p>
+          <strong>Montant déjà remboursé :</strong>
+          <%= @expenditure.total_payed %>
+          <a href="#">Voir le détail</a>
+        </p>
+      <%= else %>
+        <p>
+          <strong>Dépense remboursée !</strong>
+          <a href="#">Voir le détail</a>
+        </p>
+      <%= end %>
+      <p>
+        <strong>Catégories :</strong>
+        <%= @expenditure.display_categories %>
+      </p>
+    </div>
+  </div>
+</div>

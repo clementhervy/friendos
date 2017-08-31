@@ -1,0 +1,50 @@
+Brief:
+    https://gist.github.com/Em-AK/525a8a21afb9dd326580c236f7ebfea2
+
+Rails references:
+    https://gist.github.com/Em-AK/450b5856a0b186744a6e297ee405a0fb
+
+Tutorials:
+    @ paragraph 5.6 http://guides.rubyonrails.org/getting_started.html#saving-data-in-the-controller
+
+    Clearance:
+        @xx  https://www.sitepoint.com/simple-rails-authentication-with-clearance/
+
+Objective: 
+    * Common expenditures management for a group of people
+
+Todos:
+    + Implement model (in routes.rb via resources)
+        * entities
+            * base
+                * id -> not necessary, created automatically by Active Record
+            * User              -> OK
+                * email
+                * password
+                * name
+                * groups        -> ** hmabt OK
+                * expenditures  -> * hm OK
+                * payments      -> * hm OK
+            * Group             -> OK
+                * name
+                * creator       -> User bt OK
+                * users         -> ** hmabt OK
+                * expenditures  -> * hm OK
+            * Expenditure       -> OK
+                * object
+                * date_made
+                * payer         -> User bt OK
+                * group         -> bt OK
+                * amount
+                * amount_per_user()
+                * payments      -> * hm OK
+                * is_paid
+                * categories    -> * hmabt OK
+            * Payment           -> OK
+                * expenditure   -> bt OK
+                * date_made
+                * payer         -> User bt OK
+                * amount
+            * Category          -> OK
+                * expenditures  -> * hmabt OK
+                * label

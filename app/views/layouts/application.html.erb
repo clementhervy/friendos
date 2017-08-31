@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>FriendOS</title>
-
     <%= csrf_meta_tags %>
-
-    <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <!--
+        * dépenses
+        * groupes
+        * admin user
+        * logoff
+    -->
+    <%# if controller_name.upcase != 'Home'.upcase and action_name.upcase != 'Index'.upcase %>
+    <% if signed_in? %>
+      <nav class="navbar navbar-expand-md navbar-light bg-faded">
+        <a class="navbar-brand" href="/"><i class="fa fa-users"></i> FriendOS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <%= link_to "Accueil", landing_path, class: 'nav-item nav-link' %>
+            <%= link_to "Mes dépenses", expenditures_path, class: 'nav-item nav-link' %>
+            <%= link_to "Mes groupes", groups_path, class: 'nav-item nav-link' %>
+            <%= link_to(landing_path, class: 'nav-item nav-link', title: 'Gérer mon compte') do %>
+              <%= current_user.email %> <i class="fa fa-gears"></i>
+            <% end %>
+            <%= link_to(sign_out_path, id: '', class: 'nav-item nav-link btn btn-link', title: 'Déconnexion', method: :delete) do %>
+              <i class="fa fa-remove"></i>
+            <% end %>
+            <div id="flash">
+              <% flash.each do |key, value| %>
+                <div class="flash <%= key %>">
+                  <%= value %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <% end %>
     <%= yield %>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

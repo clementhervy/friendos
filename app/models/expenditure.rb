@@ -8,13 +8,18 @@ class Expenditure < ApplicationRecord
   monetize :total_payed_cents
 
   def amount_per_group_member_cents
-    amount / group.users.count
+    byebug
+    amount / :group users.count
   end
 
   def total_payed_cents
     payments.each do |p|
       total + p.amount
     end
+  end
+
+  def beneficiaries
+    group.users.remove(:payer)
   end
 
   def display_categories

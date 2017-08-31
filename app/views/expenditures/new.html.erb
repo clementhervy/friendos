@@ -1,0 +1,20 @@
+<section class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="content-header">Nouvelle dépense</h1>
+        <%= form_for :expenditure, url: expenditures_path do |form| %>
+          <%= form.text_field :object, class: 'form-control', placeholder: 'Dépense', required: true, input_html: { autofocus: true, required: true }, title: "Le motif de ma dépense" %>
+          <%= form.date_field :date_made, class: 'form-control', required: true, title: 'La date a laquelle ma dépense a été faite.' %>
+          <%= form.number_field :amount, step: :any, placeholder: 'Montant', class: 'text_field form-control', title: 'Le montant (Yves) de la dépense.' %> 
+          <%= form.select :group, current_user.groups {|g| [g.name, g.id]}, {}, {class: 'form-control combobox', required: true} %>
+          <%= link_to(new_group_path, title: 'Créer un groupe', class: 'form-option') do %>
+            <i class="fa fa-plus-circle"></i>
+          <% end %>
+          <%#= form.select :category, Category.all {|c| [c.label, c.id]}, class: 'combobox' %>
+          <%= form.submit 'Ajouter la dépense !', class: 'form-control btn btn-lg btn-primary btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

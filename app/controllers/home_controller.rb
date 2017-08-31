@@ -3,20 +3,8 @@ class HomeController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    if !signed_in?
+      redirect_to action: 'index'
+    end
   end
 end

@@ -1,0 +1,35 @@
+<section class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="content-header">Mes groupes</h1>
+        <% if @groups_created.empty? %>
+            <h2>Vous n'avez pas créé de groupes !</h2>
+            <%= link_to "Créer un groupe", new_group_path, class: 'btn btn-lg btn-primary btn-block' %>
+        <% else %>
+        <table class="table table-inverse">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <!--th>Créé par</th-->
+              <th>Membres</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @groups_created.each do |g| %>
+              <tr>
+                <th scope="row"><%= g.name %></th>
+                <!--td><%= g.creator.name %></td-->
+                <td><%= g.display_members %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+      <div class="col-12 text-center">
+        <h1 class="content-header">Les groupes dont je suis membre</h1>
+      </div>
+    </div>
+  </div>
+</section>

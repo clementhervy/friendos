@@ -223,9 +223,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>current_user to get current user.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -310,13 +308,15 @@
 13
 14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@expenditure</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Expenditure.html" title="Expenditure (class)">Expenditure</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='rparen'>)</span>
+  <span class='ivar'>@expenditure</span><span class='period'>.</span><span class='id identifier rubyid_payer'>payer</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
   <span class='ivar'>@expenditure</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
   <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@expenditure</span>
 <span class='kw'>end</span></pre>
@@ -340,10 +340,10 @@
       <pre class="lines">
 
 
-22</pre>
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -366,10 +366,10 @@
       <pre class="lines">
 
 
-18</pre>
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -412,18 +412,7 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>current_user to get current user</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -485,10 +474,10 @@
       <pre class="lines">
 
 
-20</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/expenditures_controller.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -501,7 +490,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 29 17:54:04 2017 by
+  Generated on Thu Aug 31 15:01:01 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

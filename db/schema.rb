@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829112630) do
+ActiveRecord::Schema.define(version: 20170831093221) do
 
   create_table "categories", force: :cascade do |t|
     t.string "label"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170829112630) do
   end
 
   create_table "categories_expenditures", id: false, force: :cascade do |t|
-    t.integer "categories_id"
-    t.integer "expenditures_id"
-    t.index ["categories_id"], name: "index_categories_expenditures_on_categories_id"
-    t.index ["expenditures_id"], name: "index_categories_expenditures_on_expenditures_id"
+    t.integer "category_id"
+    t.integer "expenditure_id"
+    t.index ["category_id"], name: "index_categories_expenditures_on_category_id"
+    t.index ["expenditure_id"], name: "index_categories_expenditures_on_expenditure_id"
   end
 
   create_table "expenditures", force: :cascade do |t|
@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(version: 20170829112630) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "creator_id"
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|
-    t.integer "groups_id"
-    t.integer "users_id"
-    t.index ["groups_id"], name: "index_groups_users_on_groups_id"
-    t.index ["users_id"], name: "index_groups_users_on_users_id"
+    t.integer "group_id"
+    t.integer "user_id"
+    t.index ["group_id"], name: "index_groups_users_on_group_id"
+    t.index ["user_id"], name: "index_groups_users_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
